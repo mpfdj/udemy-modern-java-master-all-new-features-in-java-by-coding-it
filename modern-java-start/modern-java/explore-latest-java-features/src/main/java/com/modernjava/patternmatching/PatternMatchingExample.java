@@ -16,4 +16,26 @@ public class PatternMatchingExample {
     }
 
 
+    // patternMatching using InstanceOf - Java 16
+    public String patternUsingInstanceOf(Object o) {
+        if (o instanceof Integer i) {
+            return "Integer:" + i;
+        }
+        if (o instanceof String s) {
+            return "String of length:" + s.length();
+        }
+        return "Not a String or Integer";
+    }
+
+
+    // patternMatching using Switch - Java 21
+    public String patternUsingSwitch(Object o) {
+        return switch (o) {
+          case String s -> "String of length:" + s.length();
+          case Integer i -> "Integer:" + i;
+            case null, default -> "Not a String or Integer";
+        };
+    }
+
+
 }

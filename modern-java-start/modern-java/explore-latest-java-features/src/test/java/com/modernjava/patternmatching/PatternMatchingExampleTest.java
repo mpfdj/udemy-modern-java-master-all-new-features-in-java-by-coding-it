@@ -11,16 +11,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PatternMatchingExampleTest {
 
-     PatternMatchingExample patternMatchingExample
-             = new PatternMatchingExample();
+     PatternMatchingExample patternMatchingExample = new PatternMatchingExample();
 
     @ParameterizedTest
     @MethodSource("input")
     void pattern(Object value, String expectedResult) {
-
         var output =  patternMatchingExample.pattern(value);
         assertEquals(expectedResult, output);
     }
+
+    @ParameterizedTest
+    @MethodSource("input")
+    void patternUsingInstanceOf(Object value, String expectedResult) {
+        var output =  patternMatchingExample.patternUsingInstanceOf(value);
+        assertEquals(expectedResult, output);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
+    void patternUsingSwitch(Object value, String expectedResult) {
+        var output =  patternMatchingExample.patternUsingSwitch(value);
+        assertEquals(expectedResult, output);
+    }
+
 
     private static Stream<Arguments> input() {
         return Stream.of(
@@ -29,5 +42,10 @@ class PatternMatchingExampleTest {
                 Arguments.of(null, "Not a String or Integer")
         );
     }
+
+
+
+
+
 
 }
