@@ -11,4 +11,23 @@ public class MoviesClientTest {
 
     MoviesClient moviesClient = new MoviesClient();
 
+    @Test
+    void getMovieById() {
+        var movie = moviesClient.getMovieById();
+        assertNotNull(movie);
+        assertEquals("Batman Begins", movie.name());
+    }
+
+    @Test
+    void getMovieByIdAsync() {
+        var movie = moviesClient.getMovieByIdAsync().join();
+        assertNotNull(movie);
+        assertEquals("Batman Begins", movie.name());
+    }
+
+    @Test
+    void getAllMovies() {
+        var movieList = moviesClient.getAllMovies();
+        assert movieList.size() == 10;
+    }
 }
