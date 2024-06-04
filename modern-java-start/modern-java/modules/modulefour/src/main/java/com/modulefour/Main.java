@@ -7,3 +7,12 @@ public class Main {
         System.out.println(Main.class.getModule());
     }
 }
+
+// Unnamed module
+// For backwards compatibility
+
+// $ cd modern-java/modules/modulefour/build
+// $ java -cp ./libs/modulefour.jar com.modulefour.Main
+
+// Automatic module
+// $ java --module-path libs -m modulefour/com.modulefour.Main
